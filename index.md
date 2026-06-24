@@ -4,6 +4,8 @@
 
 Built for the desktop with Tauri, Rust, and React. No artificial limits — unlimited saved connections and concurrent sessions.
 
+### [⬇ 下载 Pango Pro for macOS（v0.4.0）](download.html)
+
 ![Pango screenshot](img/screenshot-terminal.png)
 
 ## Highlights
