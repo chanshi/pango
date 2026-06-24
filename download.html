@@ -31,7 +31,15 @@
   .btn-ghost:hover{background:var(--panel-2);transform:translateY(-2px)}
   .btn-row{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
   .meta{color:var(--muted);font-size:.9rem;text-align:center}
+  .meta a{color:var(--teal);text-decoration:none}
   .meta code{font-family:var(--mono);color:#b9c6d6;background:var(--panel);padding:.1rem .45rem;border-radius:6px;font-size:.82em;word-break:break-all}
+  .platforms{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;width:100%;max-width:640px}
+  @media(max-width:560px){.platforms{grid-template-columns:1fr}}
+  .plat{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:1.2rem 1rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.7rem}
+  .plat-name{font-weight:700;font-size:1.05rem}
+  .plat .btn{width:100%;justify-content:center;padding:.7rem 1rem;font-size:.95rem}
+  .plat-meta{color:var(--muted);font-size:.78rem;line-height:1.5}
+  .plat-meta a.alt{color:var(--teal);text-decoration:none}
   /* cards */
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:3rem 0}
   .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:1.3rem 1.4rem}
@@ -64,32 +72,41 @@
   </header>
 
   <div class="dl">
-    <div class="btn-row">
-      <a class="btn btn-primary" href="https://github.com/chanshi/pango/releases/download/v0.4.0/Pango-Pro-0.4.0-arm64.dmg">
-        ⬇ 下载 v0.4.0（Apple Silicon）
-      </a>
-      <!-- 国内镜像：Gitee 部署后把下方链接换成镜像地址 -->
-      <a class="btn btn-ghost" href="https://github.com/chanshi/pango/releases/download/v0.4.0/Pango-Pro-0.4.0-arm64.dmg">
-        🪞 国内镜像（即将上线）
-      </a>
+    <div class="platforms">
+      <div class="plat">
+        <div class="plat-name">macOS</div>
+        <a class="btn btn-primary" href="https://github.com/chanshi/pango/releases/download/v0.4.0/Pango-Pro-0.4.0-arm64.dmg">⬇ 下载 .dmg</a>
+        <p class="plat-meta">Apple Silicon · macOS 12+ · 已签名+公证</p>
+      </div>
+      <div class="plat">
+        <div class="plat-name">Windows</div>
+        <a class="btn btn-primary" href="https://github.com/chanshi/pango/releases/download/v0.4.0/Pango-Pro-0.4.0-x64-setup.exe">⬇ 下载 .exe</a>
+        <p class="plat-meta">x64 · Win 10/11 · <a class="alt" href="https://github.com/chanshi/pango/releases/download/v0.4.0/Pango-Pro-0.4.0-x64.msi">.msi</a></p>
+      </div>
+      <div class="plat">
+        <div class="plat-name">Linux</div>
+        <a class="btn btn-primary" href="https://github.com/chanshi/pango/releases/download/v0.4.0/Pango-Pro-0.4.0-amd64.AppImage">⬇ 下载 .AppImage</a>
+        <p class="plat-meta">x86_64 · <a class="alt" href="https://github.com/chanshi/pango/releases/download/v0.4.0/Pango-Pro-0.4.0-amd64.deb">.deb</a></p>
+      </div>
     </div>
-    <p class="meta">macOS 12.0+ · Apple Silicon (arm64) · 9.8 MB · Developer ID 签名 + Apple 公证</p>
-    <p class="meta">SHA-256：<code>2270ecc9857b468b6d8836c1cc726f60308eae36ee3038df0421a5f3909f709a</code></p>
+    <p class="meta">v0.4.0 · 全部安装包见 <a href="https://github.com/chanshi/pango/releases/tag/v0.4.0">GitHub Releases</a></p>
   </div>
 
   <div class="grid">
     <div class="card">
       <h3>安装</h3>
       <ol>
-        <li>打开下载的 <b>.dmg</b></li>
-        <li>把 <b>Pango Pro</b> 拖入 <b>Applications</b></li>
-        <li>双击打开即可 —— 已公证，<b>无需任何额外步骤</b></li>
+        <li><b>macOS</b>：打开 .dmg，拖入 Applications。已公证，<b>直接打开</b></li>
+        <li><b>Windows</b>：运行 .exe / .msi。未签名，首次会弹 SmartScreen → 点<b>「更多信息 → 仍要运行」</b></li>
+        <li><b>Linux</b>：.AppImage 赋可执行权限后运行，或 <code>dpkg -i</code> 装 .deb</li>
       </ol>
     </div>
     <div class="card">
       <h3>系统要求</h3>
-      <p>macOS 12.0（Monterey）或更高<br/>Apple Silicon（M 系列）芯片</p>
-      <p class="note" style="margin-top:.5rem">Intel 版本规划中</p>
+      <p><b>macOS</b> 12.0+ · Apple Silicon<br/>
+      <b>Windows</b> 10/11 · x64<br/>
+      <b>Linux</b> · x86_64（webkit2gtk 4.1）</p>
+      <p class="note" style="margin-top:.5rem">macOS Intel 版规划中</p>
     </div>
     <div class="card">
       <h3>本版新增 (0.4.0)</h3>
